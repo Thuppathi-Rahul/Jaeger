@@ -71,3 +71,31 @@ Powers the web UI and exposes APIs for external tools.
 **6. UI**
 
 A web frontend to explore traces and visualize performance.
+
+
+**Jaeger Deployment in Kubernetes (AKS or other)**
+
+>
+**1. Helm (Recommended for Production)
+Install Jaeger via Helm:**
+
+```
+helm repo add jaegertracing https://jaegertracing.github.io/helm-charts
+helm repo update
+
+helm install jaeger jaegertracing/jaeger \
+  --namespace observability \
+  --create-namespace \
+  --set provisionDataStore.cassandra=false \
+  --set provisionDataStore.elasticsearch=true \
+  --set storage.type=elasticsearch
+
+```
+
+**Access Jaeger UI (using port-forwarding or Ingress):**
+
+```
+kubectl port-forward svc/jaeger-query 16686:16686 -n observability
+```
+Then open: http://localhost:16686
+>
