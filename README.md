@@ -8,13 +8,19 @@ It is part of the CNCF (Cloud Native Computing Foundation) ecosystem, just like 
 
 **Fundamentals of Jaeger**
 >
-1.Jaeger implements the OpenTracing standard (now superseded by OpenTelemetry) and is used to:
+Jaeger implements the OpenTracing standard (now superseded by OpenTelemetry) and is used to:
 
-2.Trace requests across distributed systems
-
-3.Measure service latency
-
-4.Understand application performance bottlenecks
-
-Visualize request flows
+1.Trace requests across distributed systems
+2.Measure service latency
+3.Understand application performance bottlenecks
+4. Visualize request flows
 >
+
+**Key Concepts:**
+
+| Term        | Meaning                                                                   |
+| ----------- | ------------------------------------------------------------------------- |
+| **Trace**   | A collection of spans representing the journey of a request               |
+| **Span**    | A single operation, includes start time, duration, tags, logs, and parent |
+| **Context** | Metadata propagated between services                                      |
+| **Baggage** | User-defined data that travels with a request                             |
