@@ -19,6 +19,10 @@ Jaeger implements the OpenTracing standard (now superseded by OpenTelemetry) and
 4. Visualize request flows
 >
 
+
+
+
+
 **Key Concepts:**
 
 | Term        | Meaning                                                                   |
@@ -30,47 +34,50 @@ Jaeger implements the OpenTracing standard (now superseded by OpenTelemetry) and
 
 
 
+
+
+
 **Jaeger Architecture**
 >
 Jaeger is composed of several components:
 
 **1. Client Libraries**
 
-Instrumented in your code to create and propagate spans.
+🔸 Instrumented in your code to create and propagate spans.
 
-Languages: Go, Java, Python, Node.js, etc.
+🔸 Languages: Go, Java, Python, Node.js, etc.
 
-Often integrated via OpenTelemetry SDK now.
+🔸 Often integrated via OpenTelemetry SDK now.
 
 **2. Agent**
 
-A network daemon that listens for spans sent over UDP.
+🔸 A network daemon that listens for spans sent over UDP.
 
-Runs as a sidecar or daemonset in Kubernetes.
+🔸 Runs as a sidecar or daemonset in Kubernetes.
 
-Batches and sends spans to the collector.
+🔸 Batches and sends spans to the collector.
 
 **3. Collector**
 
-Receives spans from agents or directly from apps.
+🔸 Receives spans from agents or directly from apps.
 
-Validates, transforms, and stores them in a backend like Elasticsearch or Cassandra.
+🔸 Validates, transforms, and stores them in a backend like Elasticsearch or Cassandra.
 
 **4. Storage Backend**
 
-Where trace data is persisted.
+🔸 Where trace data is persisted.
 
-Supported: Elasticsearch, Cassandra, Kafka, Google Cloud Bigtable, etc.
+🔸 Supported: Elasticsearch, Cassandra, Kafka, Google Cloud Bigtable, etc.
 
 **5. Query Service**
 
-Provides an API for retrieving trace data.
+🔸 Provides an API for retrieving trace data.
 
-Powers the web UI and exposes APIs for external tools.
+🔸 Powers the web UI and exposes APIs for external tools.
 
 **6. UI**
 
-A web frontend to explore traces and visualize performance.
+🔸 A web frontend to explore traces and visualize performance.
 
 >
 
@@ -137,18 +144,23 @@ spec:
 kubectl apply -f jaeger-deployment.yaml
 ```
 
+
+
+
 **Uses of Jaeger**
 >
-Performance Bottleneck Analysis: Identify slow services and optimize them.
+🔸Performance Bottleneck Analysis: Identify slow services and optimize them.
 
-Root Cause Analysis: Trace failures and see where they originate.
+🔸Root Cause Analysis: Trace failures and see where they originate.
 
-Monitoring Request Latency: View how long a request takes across multiple services.
+🔸Monitoring Request Latency: View how long a request takes across multiple services.
 
-Service Dependency Visualization: Understand how services interact.
+🔸Service Dependency Visualization: Understand how services interact.
 
-Alerting Integration: Works with Prometheus and Grafana for alerts and visualization.
+🔸Alerting Integration: Works with Prometheus and Grafana for alerts and visualization.
 >
+
+
 
 **Importance of Jaeger**
 
@@ -158,6 +170,8 @@ Alerting Integration: Works with Prometheus and Grafana for alerts and visualiza
 | ⚡ Performance Optimization | Pinpoint and reduce latency                                                |
 | 🧠 DevOps & SRE Friendly   | Helps SREs troubleshoot incidents and perform RCA                          |
 | 🔗 Integrates Easily       | With OpenTelemetry, Prometheus, Grafana, and Service Mesh (Istio, Linkerd) |
+
+
 
 
 
@@ -192,6 +206,8 @@ Lightweight, integrates tightly with Prometheus + Loki.
 
 
 
+
+
 🧠 **Summary**
 
 >
@@ -208,24 +224,32 @@ Lightweight, integrates tightly with Prometheus + Loki.
 
 
 
+
+
 📘 **Questions & Answers**
 >
-✅ Q1: What is Jaeger used for?
+**✅ Q1: What is Jaeger used for?**
+
 A: For distributed tracing to analyze and monitor performance across microservices.
 
-✅ Q2: What are the core components of Jaeger?
+**✅ Q2: What are the core components of Jaeger?**
+
 A: Client library, Agent, Collector, Storage, Query Service, and UI.
 
-✅ Q3: How can Jaeger be deployed in Kubernetes?
+**✅ Q3: How can Jaeger be deployed in Kubernetes?**
+
 A: Using Helm charts (recommended) or YAML deployments (for testing).
 
-✅ Q4: What is the role of Jaeger Agent?
+**✅ Q4: What is the role of Jaeger Agent?**
+
 A: Collects spans from applications and sends them to the collector.
 
-✅ Q5: Which backends can Jaeger use for storage?
+**✅ Q5: Which backends can Jaeger use for storage?**
+
 A: Elasticsearch, Cassandra, Kafka, Google Bigtable.
 
-✅ Q6: What are some popular alternatives to Jaeger?
+**✅ Q6: What are some popular alternatives to Jaeger?**
+
 A: Zipkin, AWS X-Ray, Grafana Tempo, Datadog APM, New Relic.
 >
 
